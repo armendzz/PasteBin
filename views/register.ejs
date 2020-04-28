@@ -1,0 +1,52 @@
+<%- include("partials/header" ) %>
+    <div class="container content">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                
+
+                <div class="card">
+                    <div class="card-header blue-grey">Register</div>
+
+                    <div class="card-body">
+                        
+                        <form action="/register" method="POST">
+                   
+                            
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           name="username"
+                                           
+                                           placeholder="Username">
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email"
+                                           class="form-control"
+                                           name="email"
+                                           id="email"
+                                           placeholder="Email">
+                                </div>
+                            
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password"
+                                           class="form-control"
+                                           name="password"
+                                           id="password"
+                                           placeholder="Enter password">
+                                </div>                            
+                            <br>
+                            <input class="btn btn-success" type="submit" value='Register'>&nbsp; &nbsp;
+                            
+                                Have an Account <a href="/accounts/login">Login Here.</a>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include("partials/footer" ) %>

@@ -1,0 +1,30 @@
+<div class="card paste_list">
+    <div class="card-header blue-grey" id="sidebar"> Recent Pastes</div>
+    <ul class="list-group list-group-flush">
+        
+            
+<% allpaste.forEach(function(allpaste){ %>
+  
+                <li class="list-group-item">
+                    <i class="fa fa-paste blue-grey-text small"></i>
+                    
+                        <i class="fa fa-clock-o text-warning small"></i>
+                    
+                    <a href="/p/<%= allpaste._id %>"><%= allpaste.title %></a>
+                    <p>
+                        <small class="text-muted">
+                            <a href=""><%= allpaste.highlights %></a>
+                            | <i class="fa fa-eye blue-grey-text"></i> 5
+                            | <%= allpaste.expiration %> | <%= allpaste.created.toDateString() %>
+                        </small>
+                    </p>
+                </li>
+            
+<% }); %>
+ 
+            
+        
+    </ul>
+</div>
+</div>
+

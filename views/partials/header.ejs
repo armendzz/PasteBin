@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> PasteBin Master</title>
+   
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="http://paster.manjurulhoque.com/static/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    
+<link rel="stylesheet" href="http://paster.manjurulhoque.com/static/css/prism-okadia.css">
+
+    <link rel="stylesheet" href="http://paster.manjurulhoque.com/static/plugins/select2/css/select2.min.css">
+</head>
+<link href="../css/style.css" rel="stylesheet">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">PasteBin</a>
+            <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse"
+                id="navbarSupportedContent">
+                <a class="btn btn-danger btn-sm new_paste" href="/">
+                    <i class="fa fa-plus"></i> New paste
+                </a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trending</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <form class="form-inline" method="get" action="#">
+                            <div class="md-form my-0">
+                                <input class="form-control mr-sm-2"
+                                    name="keyword" type="text"
+                                    placeholder="Search"
+                                    aria-label="Search">
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav">
+                   <% if(!currentUser){ %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>                   
+                    <% } else { %>           
+                    <li class="nav-item btn-group">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                           <%= currentUser.username %> 
+                            <img src="http://paster.manjurulhoque.com/media/avatars/guest.png" width="20" height="20"
+                                 class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu dropdown-primary"
+                             aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/mypastes">
+                                <i class="fa fa-list-alt blue-grey-text"></i> My Pastes
+                            </a>
+
+
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">
+                                <i class="fa fa-sign-out blue-grey-text"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                    <% } %>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+

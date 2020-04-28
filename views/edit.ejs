@@ -1,0 +1,100 @@
+<%- include("partials/header" ) %>
+
+
+
+
+
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="/edit/<%= pastes._id %>?_method=PUT">
+                            <div class="form-group">
+                                <label for="content" class="font-weight-bold">Edit Paste: "<%= pastes.title %>"</label>
+                                <textarea name="paste[content]" class="form-control" rows="15" id="content" autofocus><%= pastes.content %></textarea>
+                            </div>
+                            <h5>Paste Settings</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Syntax Highlighting:
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <select class="form-control" name="paste[highlights]">
+                                            <%  var options = ["markup", "css", "javascript", "clike", "abap"];
+                                            for ( var i = 0; i < options.length; i++ )
+                                            {
+                                                var isSelected = ( pastes.highlights == options[i] ) ? "selected" : ""; %>  
+                                                <option value="<%=options[i]%>" <%=isSelected %>><%= options[i] %>
+                                                </option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Paste Expiration:
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <select class="form-control" name="paste[expiration]">
+                                            <%  var options = ["N", "SD", "10M", "1H", "1D", "1W", "1M", "6M", "1Y"];
+                                            for ( var i = 0; i < options.length; i++ )
+                                            {
+                                                var isSelected = ( pastes.expiration == options[i] ) ? "selected" : ""; %>  
+                                                <option value="<%=options[i]%>" <%=isSelected %>><%= options[i] %>
+                                                </option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Paste Status:
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <select class="form-control" name="paste[status]">
+                                            <%  var options = ["public", "unlisted", "private"];
+                                            for ( var i = 0; i < options.length; i++ )
+                                            {
+                                                var isSelected = ( pastes.status == options[i] ) ? "selected" : ""; %>  
+                                                <option value="<%=options[i]%>" <%=isSelected %>><%= options[i] %>
+                                                </option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Paste Title :
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <input type="text" name="paste[title]" class="form-control" placeholder="Paste Title" value="<%= pastes.title %>">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fa fa-info-circle"></i>
+                            You are currently not logged in, this means you can
+                            not edit or delete anything you
+                            paste.
+                            <a href="/accounts/register">Sign Up</a> or
+                            <a href="/accounts/login">Login</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+            
+
+        </div>
+    </div>
+
+
+
+    <%- include("partials/footer" ) %>

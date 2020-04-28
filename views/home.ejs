@@ -1,0 +1,110 @@
+<%- include("partials/header" ) %>
+
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                      
+                            <form method="POST" action="/paste">
+                             
+                            <div class="form-group">
+                                <label for="content" class="font-weight-bold">New
+                                    Paste</label>
+                                <textarea name="content" class="form-control"
+                                    rows="15"
+                                    id="content"
+                                    autofocus></textarea>
+                            </div>
+                            <h5>Paste Settings</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Syntax Highlighting:
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <select class="form-control select2"
+                                            name="highlights">
+                                            <option value="markup">Select
+                                                language</option>
+                                            <optgroup label="Popular Languages">
+                                                <option value="markup">Markup</option>
+                                                <option value="css">CSS</option>
+                                                <option value="javascript">JavaScript</option>
+                                            </optgroup>
+                                            <optgroup label="All Languages">
+                                                <option value="clike">C-like</option>
+                                                <option value="abap">ABAP</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Paste Expiration:
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <select class="form-control"
+                                            name="expiration">
+                                            <option value="Never">Never</option>
+                                            <option value="Self Destroy">Self Destroy</option>
+                                            <option value="10 Minutes">10 Minutes</option>
+                                            <option value="1 Hour">1 Hour</option>
+                                            <option value="1 Day">1 Day</option>
+                                            <option value="1 Week">1 Week</option>
+                                            <option value="1 Month">1 Month</option>
+                                            <option value="6 Months">6 Months</option>
+                                            <option value="1 Year">1 Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Paste Status:
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+
+                                        <select class="form-control" name="status">
+                                            <option value="public">Public</option>
+                                            <option value="unlisted">Unlisted</option>
+                                            <option value="private">Private</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Paste Title :
+                                            <small class="text-muted">(Optional)</small>
+                                        </label>
+                                        <input type="text" name="title"
+                                            class="form-control"
+                                            placeholder="Paste Title" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn
+                                            btn-danger">Create New Paste</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fa fa-info-circle"></i>
+                            You are currently not logged in, this means you can
+                            not edit or delete anything you
+                            paste.
+                            <a href="/register">Sign Up</a> or
+                            <a href="/login">Login</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <%- include("partials/sidebar" ) %>
+
+        </div>
+    </div>
+
+
+
+    <%- include("partials/footer" ) %>

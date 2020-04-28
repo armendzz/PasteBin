@@ -1,0 +1,215 @@
+<%- include("partials/header") %>
+
+
+<h1> Pastes</h1>
+
+
+
+
+
+<main>
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        
+
+                        <div class="media">
+                            
+                                <img class="mr-3 mb-3 rounded-circle img-fluid"
+                                     src="http://paster.manjurulhoque.com/media/avatars/guest.png" alt="avatar"
+                                     style=" height: 60px">
+                            
+
+                            <div class="media-body">
+                                <h5 class="mt-0">
+                                    <i class="fa fa-paste blue-grey-text small"></i>
+                                    
+                                        <i class="fa fa-clock-o text-warning small"></i>
+                                    
+                                        <%= pastes.title %>
+                                </h5>
+                                <p class="text-muted small">
+                                    <i class="fa fa-user"></i>
+                                    
+                                        Guest
+                                    
+                                    <i class="fa fa-eye ml-2"></i> 8
+                                    <i class="fa fa-calendar ml-2"> April 7, 2020, 12:23 a.m.</i>
+                                    
+                                </p>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="badge badge-light">MARKUP</span>
+                                <small class="text-muted">      0.00 KB</small>
+                                <div class="pull-right">
+                                    <a class="buttonsm" data-toggle="modal"
+                                       data-target="#shareModal">share
+                                    </a>
+                                    <a href="/pastes/GfcFMI5Dlv/raw" class="buttonsm">raw</a>
+                                    <a href="/pastes/GfcFMI5Dlv/download" class="buttonsm">download</a>
+                                    <a href="/pastes/GfcFMI5Dlv/clone-redirect" class="buttonsm">clone</a>
+                                    <a class="buttonsm" data-toggle="modal"
+                                       data-target="#embedModal">
+                                        embed
+                                    </a>
+                                    
+                                        <a class="buttonsm" href="#">report</a>
+                                    
+                                    <a href="#" class="buttonsm">print</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <pre class="line-numbers language-markup" id="pre">
+                                        <code class="language-markup" id="paste_content">
+                                            <%= pastes.content %>
+                                      </code>
+                                 </pre>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <small class="text-muted">To share this paste please copy this url and send to your
+                                friends
+                            </small>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-md btn-blue-grey m-0 px-3" id="copy-to-clipboard"
+                                            type="button" data-clipboard-target="#url">Copy
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control" value="http://paster.manjurulhoque.com/pastes/GfcFMI5Dlv"
+                                       readonly id="url">
+                            </div>
+                        </div>
+
+                        <div class="card mt-3">
+                            <div class="card-header"> Raw Paste Data</div>
+                            <div class="card-body">
+                                <textarea class="form-control" rows="10"
+                                          id="raw_content"><%= pastes.content %></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+
+                <%- include("partials/sidebar") %>
+
+            <!-- Embed Modal -->
+<div class="modal" id="embedModal">
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h4 class="modal-title">Embed Code</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <textarea class="form-control" id="embed_code"><iframe src="#"
+                                                                   style="border:none;width:100%;min-height:400px;"></iframe>
+            </textarea>
+            <span id="embed_response" class="text-success"></span>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-success btn-sm" id="embed-clipboard" data-clipboard-target="#embed_code">Copy
+            </button>
+            <button class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Report Modal -->
+<div class="modal md-modal md-effect-2" id="reportModal">
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h4 class="modal-title">Report About the Paste</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <form method="post" action="#">
+            <input type="hidden" name="csrfmiddlewaretoken" value="icDmfLOWvQDdUcA4AgufXV1XppzW7uP6dJ9drXhdVhfDLpD5WIDDoq2WzviQQb4A">
+            <div class="modal-body">
+                <input type="hidden" name="id" value="138">
+                <label>Reason</label>
+                <textarea class="form-control" name="reason" placeholder="Enter your reason.."></textarea>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-warning btn-sm">Report</button>
+                <button class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="http://paster.manjurulhoque.com/static/plugins/clipboardjs/clipboard.min.js"></script>
+<script src="http://paster.manjurulhoque.com/static/js/prism.js"></script>
+<script src="http://paster.manjurulhoque.com/static/js/prisma-custom.js"></script>
+
+<script type="text/javascript">
+    let clipboard = new ClipboardJS('#copy-to-clipboard');
+
+    clipboard.on('success', function (e) {
+        $(e.trigger).text("Copied!");
+        e.clearSelection();
+        setTimeout(function () {
+            $(e.trigger).text("Copy");
+        }, 5000);
+    });
+
+    clipboard.on('error', function (e) {
+        $(e.trigger).text("Can't in Safari");
+        setTimeout(function () {
+            $(e.trigger).text("Copy");
+        }, 2500);
+    });
+
+    // embed clipboard
+    let embed_clipboard = new ClipboardJS('#embed-clipboard');
+
+    embed_clipboard.on('success', function (e) {
+        $(e.trigger).text("Copied!");
+        e.clearSelection();
+        setTimeout(function () {
+            $(e.trigger).text("Copy");
+        }, 5000);
+    });
+
+    embed_clipboard.on('error', function (e) {
+        $(e.trigger).text("Can't in Safari");
+        setTimeout(function () {
+            $(e.trigger).text("Copy");
+        }, 2500);
+    });
+</script>
+
+<%- include("partials/footer") %>

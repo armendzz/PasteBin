@@ -1,0 +1,62 @@
+<%- include("partials/header" ) %>
+
+
+   
+  
+
+ 
+
+
+<main>
+    <div class="container content">
+       
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header blue-grey"> Public Pastes</div>
+                    <ul class="list-group list-group-flush">
+                        
+
+                        <% allpaste.forEach(function(allpaste){ %>
+                          
+                            <li class="list-group-item">
+                                <div class="pull-left">
+                                    <i class="fa fa-paste blue-grey-text small"></i>
+                                    
+                                        <i class="fa fa-clock-o text-warning small"></i>
+                                    
+                                    <a href="/p/<%= allpaste.id %>">  <%= allpaste.title                    %> </a>
+
+                                    <p>
+                                        <small class="text-muted">
+                                            <%= allpaste.status %>
+                                            | <i class="fa fa-eye blue-grey-text"></i> 2
+                                            | <%= allpaste.created.toUTCString() %> 
+                                        </small>
+                                    </p>
+                                </div>
+                                <div class="pull-right">
+                                    <form  action="/edit/<%= pastes.id %>" method="GET">
+                                        <button  class="badge badge-info mr-2"><i class="fa fa-edit"></i>Edit</button>
+                                    </form>
+                                    <form  action="/delete/<%= pastes.id %>?_method=DELETE" method="POST">
+                                        <button class="badge badge-danger" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>Delete</button>
+                                    </form>
+                                </div>
+                            </li>
+                        
+                            
+                      
+                            <% }); %>
+           
+                        
+                    </ul>
+                    <div class=" mx-auto mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<%- include("partials/footer" ) %>
