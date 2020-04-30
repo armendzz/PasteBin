@@ -7,7 +7,8 @@
  
 
 
-<main>
+
+ <div id="content-wrap">
     <div class="container content">
        
         <div class="row">
@@ -35,14 +36,6 @@
                                         </small>
                                     </p>
                                 </div>
-                                <div class="pull-right">
-                                    <form  action="/edit/<%= pastes.id %>" method="GET">
-                                        <button  class="badge badge-info mr-2"><i class="fa fa-edit"></i>Edit</button>
-                                    </form>
-                                    <form  action="/delete/<%= pastes.id %>?_method=DELETE" method="POST">
-                                        <button class="badge badge-danger" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>Delete</button>
-                                    </form>
-                                </div>
                             </li>
                         
                             
@@ -51,12 +44,12 @@
            
                         
                     </ul>
-                    <div class=" mx-auto mt-3"></div>
+                  
                 </div>
             </div>
         </div>
     </div>
-</main>
 
+</div>
 
 <%- include("partials/footer" ) %>

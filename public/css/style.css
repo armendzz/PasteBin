@@ -1,6 +1,10 @@
 /**
     Custom CSS
  */
+ 
+   
+
+ 
  #content1 {
     height:95%;
     margin: 5% 5% 5% 5%;
@@ -29,8 +33,11 @@
     font-weight: 600;
 }
 #page-footer1 {
-    background: #ffeaee;
-}
+    
+    background: #ffeaee; 
+       
+}   
+
 
 .navbar {
     background: #023859 linear-gradient(#980022, #000000);
@@ -158,3 +165,19 @@ pre[class*="language-"].line-numbers > code {
 .fa-heart {
     color: deeppink;
 }
+
+#page-container1 {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+#content-wrap1 {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+  
+#footer1 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+  }

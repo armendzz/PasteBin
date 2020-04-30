@@ -14,7 +14,7 @@ var pasteSchema = new mongoose.Schema({
      },  
     expiration: {type: String, select: true},
     created: {type: Date, default: Date.now}
-});
+}, { strict: false });
 
 
 

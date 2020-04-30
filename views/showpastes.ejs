@@ -35,12 +35,18 @@
                                     
                                 </p>
                             </div>
+                            <% if(!currentUser){ %>
+                                <% } else { %>   
+                                    <% if (pastes.author.id.equals(currentUser._id)) { %>
                             <form  action="/edit/<%= pastes.id %>" method="GET">
                                 <button  class="badge badge-info mr-2"><i class="fa fa-edit"></i>Edit</button>
                             </form>
                             <form  action="/delete/<%= pastes.id %>?_method=DELETE" method="POST">
                                 <button class="badge badge-danger" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i>Delete</button>
                             </form>
+                                
+                            <% } %>
+                            <% } %>
                         </div>
                         
                         <div class="card">
@@ -51,9 +57,9 @@
                                     <a class="buttonsm" data-toggle="modal"
                                        data-target="#shareModal">share
                                     </a>
-                                    <a href="/pastes/GfcFMI5Dlv/raw" class="buttonsm">raw</a>
+                                    <a href="/raw/<%= pastes._id %>" class="buttonsm">raw</a>
                                     <a href="/pastes/GfcFMI5Dlv/download" class="buttonsm">download</a>
-                                    <a href="/pastes/GfcFMI5Dlv/clone-redirect" class="buttonsm">clone</a>
+                                    <a href="/clone/<%= pastes._id %>" class="buttonsm">clone</a>
                                     <a class="buttonsm" data-toggle="modal"
                                        data-target="#embedModal">
                                         embed
