@@ -16,7 +16,7 @@ var pasteRoutes = require("./routes/pastes"),
 
 
 
-mongoose.connect("mongodb://94.130.31.91:27017/pastebinv1")
+mongoose.connect("mongodb://localhost/pastebinv1")
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
